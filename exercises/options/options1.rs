@@ -6,11 +6,14 @@
 // This function returns how much icecream there is left in the fridge.
 // If it's before 10PM, there's 5 pieces left. At 10PM, someone eats them
 // all, so there'll be no more left :(
-// TODO: Return an Option!
 fn maybe_icecream(time_of_day: u16) -> Option<u16> {
     // We use the 24-hour system here, so 10PM is a value of 22
     // The Option output should gracefully handle cases where time_of_day > 24.
-    ???
+    match time_of_day {
+        0..=10 => Option::from(5),
+        11..=23 => Option::from(0),
+        _ => None
+    };
 }
 
 #[cfg(test)]
